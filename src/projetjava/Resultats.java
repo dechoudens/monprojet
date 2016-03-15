@@ -87,7 +87,7 @@ public class Resultats {
 	/***** LE CODE DE CETTE MÉTHODE NE DOIT EN AUCUN CAS ÊTRE MODIFIÉ !!! *****/
 	private static void afficheResultats () {
 		if (equipes.size() < 1) {
-			System.out.println("Il n'y a aucune équipe.");
+			System.out.println("Il n'y a point d'équipe équipe, t'entend !!");
 		} else {
 			Iterator it = equipes.iterator();
 			while (it.hasNext()) {
