@@ -33,9 +33,10 @@ public class Equipe {
   public Coureur meilleur(){
       int j = 0;
       for(int i = 0; i <= coureurs.size()-1; i++){
-          if(((Coureur)coureurs.get(i)).getTemps() < ((Coureur)coureurs.get(j)).getTemps()){
+          Coureur coureur = (Coureur)coureurs.get(i);
+          if(coureur.getTemps() < coureur.getTemps()){
               j = i;
-          }
+          } 
       }
       return (Coureur)coureurs.get(j);
   }
@@ -43,7 +44,8 @@ public class Equipe {
   public String majorite(){
       int nbMasc = 0;
       for(int i = 0; i < coureurs.size(); i++){
-          if(((Coureur)coureurs.get(i)).getSexe()){
+          Coureur coureur = (Coureur)coureurs.get(i);
+          if(coureur.getSexe()){
               nbMasc++;
           }
       }
