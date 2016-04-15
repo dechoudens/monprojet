@@ -10,7 +10,8 @@ public class FileToStr {
 
   private static final int EOF = -1;
 
-  /** Lecture d'un fichier texte dans un String.
+  /** 
+  public static String read (Lecture d'un fichier texte dans un String.
       @param fileName Le nom du fichier texte.
       @return le String contenant l'ensemble des caractères du fichier lu. */
   public static String read (String fileName) {
