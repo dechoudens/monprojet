@@ -56,7 +56,7 @@ public class Equipe {
         nbMasc++;
       }
     }
-    
+ 
     if (nbMasc == nbCoureur) {
       return "masculine";
     } else if (nbMasc == 0) {

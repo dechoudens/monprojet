@@ -25,7 +25,6 @@ public class Resultats {
       String uneLigne = strLigne.nextToken();
       traiterUneLigne(uneLigne);
     }
-
   }
 
   public void traiterUneLigne(String uneLigne) {
