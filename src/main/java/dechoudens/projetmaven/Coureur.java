@@ -1,4 +1,7 @@
 package dechoudens.projetmaven;
+
+import java.util.Objects;
+
 /**
  * Tour du Canton de Genève
  *
@@ -35,10 +38,31 @@ public class Coureur {
         return "meilleur = "+nom+" "+prenom+" (F) "+temps;
     }
   } // toString
-  
-  public boolean equals(Object obj){
-      return true;
+
+
+  @Override
+  public boolean equals(Object obj) {
+   
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    final Coureur other = (Coureur) obj;
+    if (this.masculin != other.masculin) {
+      return false;
+    }
+    if (Double.doubleToLongBits(this.temps) != Double.doubleToLongBits(other.temps)) {
+      return false;
+    }
+    if (!Objects.equals(this.nom, other.nom)) {
+      return false;
+    }
+    if (!Objects.equals(this.prenom, other.prenom)) {
+      return false;
+    }
+    return true;
   }
+  
+  
   
   public boolean getSexe(){
       return this.masculin;

@@ -65,5 +65,36 @@ public class Equipe {
       return "mixte";
     }
   }
+  
+  @Override
+  public boolean equals(Object obj) {
+    
+    final Equipe other = (Equipe) obj;
+    if (this.nbCoureur != other.nbCoureur) {
+      return false;
+    }
+    if (!Objects.equals(this.nom, other.nom)) {
+      return false;
+    }
+    if (!Objects.equals(this.coureurs, other.coureurs)) {
+      return false;
+    }
+    return true;
+  }
+  
+  /** utilisée uniquement pour les tests */
+  public int getSizeListeCoureurs(){
+    return coureurs.size();
+  }
+  
+  /**  utilisée uniquement pour les tests */
+  public void setCoureurs(ArrayList coureurs){
+    this.coureurs = coureurs;
+  }
+  
+  /**  utilisée uniquement pour les tests */
+  public ArrayList getCoureurs(){
+    return coureurs;
+  }
 
 }

@@ -72,4 +72,14 @@ public class Resultats {
       }
     }
   }
+  
+  /** utilisée uniquement pour les tests */
+  public ArrayList getEquipes(){
+    return equipes;
+  }
+  
+  /** utilisée uniquement pour les tests */
+  public void addEquipe(Equipe equipe){
+    equipes.add(equipe);
+  }
 }
