@@ -36,10 +36,10 @@ public class Equipe {
    * String
    */
   public String toString() {
-    return "Equipe: " + this.majorite() + " \"" + this.nom + "\", " + this.nbCoureur + " coureurs, " + this.meilleur();
+    return "Equipe: " + this.composition() + " \"" + this.nom + "\", " + this.nbCoureur + " coureurs, " + this.meilleurCoureur();
   }
 
-  public Coureur meilleur() {
+  public Coureur meilleurCoureur() {
     Coureur bestCoureur = (Coureur) coureurs.get(0);
     for (Coureur coureur : coureurs) {
       if (coureur.getTemps() < bestCoureur.getTemps()) {
@@ -49,14 +49,19 @@ public class Equipe {
     return bestCoureur;
   }
 
-  public String majorite() {
+  private int nombreMasculin(){
     int nbMasc = 0;
     for (Coureur coureur : coureurs) {
       if (coureur.getSexe()) {
         nbMasc++;
       }
     }
- 
+    return nbMasc;
+  }
+  
+  public String composition(){  
+    int nbMasc = nombreMasculin();
+    
     if (nbMasc == nbCoureur) {
       return "masculine";
     } else if (nbMasc == 0) {
@@ -65,35 +70,35 @@ public class Equipe {
       return "mixte";
     }
   }
-  
+
   @Override
   public boolean equals(Object obj) {
-    
+
     final Equipe other = (Equipe) obj;
-    if (this.nbCoureur != other.nbCoureur) {
-      return false;
-    }
     if (!Objects.equals(this.nom, other.nom)) {
-      return false;
-    }
-    if (!Objects.equals(this.coureurs, other.coureurs)) {
       return false;
     }
     return true;
   }
-  
-  /** utilisée uniquement pour les tests */
-  public int getSizeListeCoureurs(){
+
+  /**
+   * utilisée uniquement pour les tests
+   */
+  public int getSizeListeCoureurs() {
     return coureurs.size();
   }
-  
-  /**  utilisée uniquement pour les tests */
-  public void setCoureurs(ArrayList coureurs){
+
+  /**
+   * utilisée uniquement pour les tests
+   */
+  public void setCoureurs(ArrayList coureurs) {
     this.coureurs = coureurs;
   }
-  
-  /**  utilisée uniquement pour les tests */
-  public ArrayList getCoureurs(){
+
+  /**
+   * utilisée uniquement pour les tests
+   */
+  public ArrayList getCoureurs() {
     return coureurs;
   }
 

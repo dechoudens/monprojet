@@ -58,7 +58,7 @@ public class EquipeNGTest {
     }
     equipe.setCoureurs(coureurs);
 
-    Coureur result = equipe.meilleur();
+    Coureur result = equipe.meilleurCoureur();
     assertEquals(result.getTemps(), 1.0);
   }
 
@@ -70,10 +70,10 @@ public class EquipeNGTest {
       coureurs.add(new Coureur("UNIT", "Test", 'M', 0));
     }
     equipe.setCoureurs(coureurs);
-    ArrayList<Coureur> lol = equipe.getCoureurs();
+   
 
     String expResult = "masculine";
-    String result = equipe.majorite();
+    String result = equipe.composition();
     assertEquals(result, expResult);
   }
 
@@ -86,7 +86,7 @@ public class EquipeNGTest {
     equipe.setCoureurs(coureurs);
 
     String expResult = "feminine";
-    String result = equipe.majorite();
+    String result = equipe.composition();
     assertEquals(result, expResult);
   } 
 
@@ -107,7 +107,7 @@ public class EquipeNGTest {
     equipe.setCoureurs(coureurs);
 
     String expResult = "mixte";
-    String result = equipe.majorite();
+    String result = equipe.composition();
     assertEquals(result, expResult);
   }
 

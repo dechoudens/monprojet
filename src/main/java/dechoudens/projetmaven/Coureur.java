@@ -20,16 +20,14 @@ public class Coureur {
   public Coureur (String nom, String prenom, char sexe, double temps) {
     this.nom = nom;
     this.prenom = prenom;
-    if(sexe == 'M'){
-        this.masculin = true;
-    }
-    else{
-        this.masculin = false;
-    }
+    this.masculin = isMasculin(sexe);
     this.temps = temps;
   } // Constructeur
+  
+  private boolean isMasculin(char sexe){
+    return sexe == 'M';
+  }
 
-  /** Retourne une représentation des informations du coureur sous la forme d'un String */
   public String toString () {
     if(masculin){
         return "meilleur = "+nom+" "+prenom+" (M) "+temps;
@@ -37,7 +35,7 @@ public class Coureur {
     else{
         return "meilleur = "+nom+" "+prenom+" (F) "+temps;
     }
-  } // toString
+  }
 
 
   @Override
