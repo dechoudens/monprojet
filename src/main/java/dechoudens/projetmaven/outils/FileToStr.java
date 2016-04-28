@@ -1,4 +1,4 @@
-package dechoudens.projetmaven;
+package dechoudens.projetmaven.outils;
 import java.io.*;
 /**
  * Lecture d'un fichier texte dans un String

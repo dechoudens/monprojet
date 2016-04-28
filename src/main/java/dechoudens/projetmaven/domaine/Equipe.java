@@ -1,5 +1,6 @@
-package dechoudens.projetmaven;
+package dechoudens.projetmaven.domaine;
 
+import dechoudens.projetmaven.domaine.Coureur;
 import java.util.*;
 
 /**

@@ -12,6 +12,7 @@ public class Main {
         String fileName = "Resultats.txt";
         System.out.println("Traitement des résultats connu contenus dans \"" + fileName + "\" :");
         resultats = new Resultats();
-        resultats.afficheResultats(fileName);
+        resultats.traiterFichier(fileName);
+        resultats.afficheResultats();
     } 
 }

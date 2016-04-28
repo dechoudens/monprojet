@@ -1,6 +1,8 @@
 
 package dechoudens.projetmaven;
 
+import dechoudens.projetmaven.domaine.Equipe;
+import dechoudens.projetmaven.domaine.Coureur;
 import java.util.ArrayList;
 import static org.testng.Assert.*;
 import org.testng.annotations.BeforeMethod;
@@ -10,7 +12,7 @@ import org.testng.annotations.Test;
  *
  * @author Meckanik
  */
-public class EquipeNGTest {
+public class EquipeTest {
   private static final int NB_COUREUR = 10;
   private Equipe equipe;
 

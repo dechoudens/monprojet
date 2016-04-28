@@ -1,4 +1,4 @@
-package dechoudens.projetmaven;
+package dechoudens.projetmaven.domaine;
 
 import java.util.Objects;
 
