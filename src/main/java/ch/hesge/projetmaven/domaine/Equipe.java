@@ -1,6 +1,6 @@
 package ch.hesge.projetmaven.domaine;
 
-import ch.hesge.projetmaven.domaine.Coureur;
+import com.google.common.annotations.VisibleForTesting;
 import java.util.*;
 
 /**
@@ -85,6 +85,7 @@ public class Equipe {
   /**
    * utilisée uniquement pour les tests
    */
+  @VisibleForTesting
   int getSizeListeCoureurs() {
     return coureurs.size();
   }
@@ -92,6 +93,7 @@ public class Equipe {
   /**
    * utilisée uniquement pour les tests
    */
+  @VisibleForTesting
   void setCoureurs(List<Coureur> coureurs) {
     this.coureurs = coureurs;
   }
@@ -99,6 +101,7 @@ public class Equipe {
   /**
    * utilisée uniquement pour les tests
    */
+  @VisibleForTesting
   List<Coureur> getCoureurs() {
     return coureurs;
   }
