@@ -2,18 +2,17 @@ package ch.hesge.projetmaven.metier;
 
 import ch.hesge.projetmaven.domaine.Coureur;
 import ch.hesge.projetmaven.domaine.Equipe;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.*;
 
 /**
  * @author Antoine de Choudens
  */
 public class ListeEquipe {
 
-  private ArrayList<Equipe> liste;
+  private final List<Equipe> liste;
 
   public ListeEquipe() {
-    liste = new ArrayList();
+    liste = new ArrayList<> ();
   }
 
   public final int size() {

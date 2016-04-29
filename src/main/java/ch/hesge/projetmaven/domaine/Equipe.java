@@ -22,7 +22,7 @@ public class Equipe {
   public Equipe(String nom, int nbCoureur) {
     this.nom = nom;
     this.nbCoureur = nbCoureur;
-    this.coureurs = new ArrayList<Coureur>();
+    this.coureurs = new ArrayList<>();
   }
 
   /**
@@ -94,7 +94,7 @@ public class Equipe {
    * utilisée uniquement pour les tests
    */
   @VisibleForTesting
-  void setCoureurs(List<Coureur> coureurs) {
+  void setCoureurs(List coureurs) {
     this.coureurs = coureurs;
   }
 
@@ -102,7 +102,7 @@ public class Equipe {
    * utilisée uniquement pour les tests
    */
   @VisibleForTesting
-  List<Coureur> getCoureurs() {
+  List getCoureurs() {
     return coureurs;
   }
 
