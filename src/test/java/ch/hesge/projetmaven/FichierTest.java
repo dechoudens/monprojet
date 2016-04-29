@@ -1,7 +1,7 @@
 
-package dechoudens.projetmaven;
+package ch.hesge.projetmaven;
 
-import dechoudens.projetmaven.metier.Fichier;
+import ch.hesge.projetmaven.metier.Fichier;
 import static org.testng.Assert.fail;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;

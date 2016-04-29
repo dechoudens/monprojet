@@ -1,6 +1,6 @@
-package dechoudens.projetmaven.metier;
+package ch.hesge.projetmaven.metier;
 
-import dechoudens.projetmaven.outils.FileToStr;
+import ch.hesge.projetmaven.outils.FileToStr;
 import java.util.StringTokenizer;
 
 /**

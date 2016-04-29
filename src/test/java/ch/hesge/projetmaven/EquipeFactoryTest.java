@@ -1,8 +1,8 @@
 
-package dechoudens.projetmaven;
+package ch.hesge.projetmaven;
 
-import dechoudens.projetmaven.domaine.Equipe;
-import dechoudens.projetmaven.metier.EquipeFactory;
+import ch.hesge.projetmaven.domaine.Equipe;
+import ch.hesge.projetmaven.metier.EquipeFactory;
 import static org.testng.Assert.assertEquals;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;

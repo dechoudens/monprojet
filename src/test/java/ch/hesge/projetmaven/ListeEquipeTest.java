@@ -1,9 +1,9 @@
 
-package dechoudens.projetmaven;
+package ch.hesge.projetmaven;
 
 
-import dechoudens.projetmaven.domaine.Equipe;
-import dechoudens.projetmaven.metier.ListeEquipe;
+import ch.hesge.projetmaven.domaine.Equipe;
+import ch.hesge.projetmaven.metier.ListeEquipe;
 import static org.testng.Assert.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;

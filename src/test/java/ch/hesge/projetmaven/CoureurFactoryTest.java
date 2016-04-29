@@ -1,7 +1,7 @@
-package dechoudens.projetmaven;
+package ch.hesge.projetmaven;
 
-import dechoudens.projetmaven.domaine.Coureur;
-import dechoudens.projetmaven.metier.CoureurFactory;
+import ch.hesge.projetmaven.domaine.Coureur;
+import ch.hesge.projetmaven.metier.CoureurFactory;
 import static org.testng.Assert.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;

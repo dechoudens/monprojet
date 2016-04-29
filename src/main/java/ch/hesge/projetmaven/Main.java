@@ -1,4 +1,4 @@
-package dechoudens.projetmaven;
+package ch.hesge.projetmaven;
 
 
 /**

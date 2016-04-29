@@ -1,8 +1,8 @@
 
-package dechoudens.projetmaven;
+package ch.hesge.projetmaven;
 
-import dechoudens.projetmaven.domaine.Equipe;
-import dechoudens.projetmaven.domaine.Coureur;
+import ch.hesge.projetmaven.domaine.Equipe;
+import ch.hesge.projetmaven.domaine.Coureur;
 import java.util.ArrayList;
 import static org.testng.Assert.*;
 import org.testng.annotations.BeforeMethod;

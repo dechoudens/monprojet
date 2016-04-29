@@ -1,7 +1,7 @@
-package dechoudens.projetmaven.metier;
+package ch.hesge.projetmaven.metier;
 
-import dechoudens.projetmaven.domaine.Coureur;
-import dechoudens.projetmaven.domaine.Equipe;
+import ch.hesge.projetmaven.domaine.Coureur;
+import ch.hesge.projetmaven.domaine.Equipe;
 import java.util.ArrayList;
 import java.util.Iterator;
 

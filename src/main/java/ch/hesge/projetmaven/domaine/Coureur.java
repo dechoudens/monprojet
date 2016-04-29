@@ -1,4 +1,4 @@
-package dechoudens.projetmaven.domaine;
+package ch.hesge.projetmaven.domaine;
 
 import java.util.Objects;
 

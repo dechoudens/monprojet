@@ -1,6 +1,6 @@
-package dechoudens.projetmaven.domaine;
+package ch.hesge.projetmaven.domaine;
 
-import dechoudens.projetmaven.domaine.Coureur;
+import ch.hesge.projetmaven.domaine.Coureur;
 import java.util.*;
 
 /**

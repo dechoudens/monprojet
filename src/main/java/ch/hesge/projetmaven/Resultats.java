@@ -1,12 +1,12 @@
-package dechoudens.projetmaven;
+package ch.hesge.projetmaven;
 
-import dechoudens.projetmaven.domaine.Equipe;
-import dechoudens.projetmaven.domaine.Coureur;
-import dechoudens.projetmaven.metier.CoureurFactory;
-import dechoudens.projetmaven.metier.EquipeFactory;
-import dechoudens.projetmaven.metier.Fichier;
-import dechoudens.projetmaven.metier.ListeEquipe;
-import dechoudens.projetmaven.outils.FileToStr;
+import ch.hesge.projetmaven.domaine.Equipe;
+import ch.hesge.projetmaven.domaine.Coureur;
+import ch.hesge.projetmaven.metier.CoureurFactory;
+import ch.hesge.projetmaven.metier.EquipeFactory;
+import ch.hesge.projetmaven.metier.Fichier;
+import ch.hesge.projetmaven.metier.ListeEquipe;
+import ch.hesge.projetmaven.outils.FileToStr;
 import java.util.*;
 
 /**

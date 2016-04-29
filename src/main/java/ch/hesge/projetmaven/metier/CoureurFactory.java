@@ -1,6 +1,6 @@
-package dechoudens.projetmaven.metier;
+package ch.hesge.projetmaven.metier;
 
-import dechoudens.projetmaven.domaine.Coureur;
+import ch.hesge.projetmaven.domaine.Coureur;
 import java.util.StringTokenizer;
 
 /**
