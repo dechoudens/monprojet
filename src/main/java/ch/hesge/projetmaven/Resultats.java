@@ -7,7 +7,6 @@ import ch.hesge.projetmaven.metier.EquipeFactory;
 import ch.hesge.projetmaven.metier.Fichier;
 import ch.hesge.projetmaven.metier.ListeEquipe;
 import ch.hesge.projetmaven.outils.FileToStr;
-import java.util.*;
 
 /**
  * Tour du Canton de Genève

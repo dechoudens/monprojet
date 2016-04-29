@@ -15,14 +15,14 @@ public class Equipe {
 
   private String nom;
   /* Nom de l'équipe */
-  private ArrayList<Coureur> coureurs;
+  private List<Coureur> coureurs;
   /* Liste des coureurs de l'équipe */
   private int nbCoureur;
 
   public Equipe(String nom, int nbCoureur) {
     this.nom = nom;
     this.nbCoureur = nbCoureur;
-    this.coureurs = new ArrayList();
+    this.coureurs = new ArrayList<Coureur>();
   }
 
   /**
@@ -41,7 +41,7 @@ public class Equipe {
   }
 
   public Coureur meilleurCoureur() {
-    Coureur bestCoureur = (Coureur) coureurs.get(0);
+    Coureur bestCoureur = coureurs.get(0);
     for (Coureur coureur : coureurs) {
       if (coureur.getTemps() < bestCoureur.getTemps()) {
         bestCoureur = coureur;
@@ -85,21 +85,21 @@ public class Equipe {
   /**
    * utilisée uniquement pour les tests
    */
-  public int getSizeListeCoureurs() {
+  int getSizeListeCoureurs() {
     return coureurs.size();
   }
 
   /**
    * utilisée uniquement pour les tests
    */
-  public void setCoureurs(ArrayList coureurs) {
+  void setCoureurs(List<Coureur> coureurs) {
     this.coureurs = coureurs;
   }
 
   /**
    * utilisée uniquement pour les tests
    */
-  public ArrayList getCoureurs() {
+  List<Coureur> getCoureurs() {
     return coureurs;
   }
 

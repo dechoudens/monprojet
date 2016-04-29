@@ -1,5 +1,5 @@
 
-package ch.hesge.projetmaven;
+package ch.hesge.projetmaven.metier;
 
 import ch.hesge.projetmaven.metier.Fichier;
 import static org.testng.Assert.fail;

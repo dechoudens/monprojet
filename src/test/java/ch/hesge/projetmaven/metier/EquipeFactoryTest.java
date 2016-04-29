@@ -1,5 +1,5 @@
 
-package ch.hesge.projetmaven;
+package ch.hesge.projetmaven.metier;
 
 import ch.hesge.projetmaven.domaine.Equipe;
 import ch.hesge.projetmaven.metier.EquipeFactory;

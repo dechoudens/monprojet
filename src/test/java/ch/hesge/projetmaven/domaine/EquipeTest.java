@@ -1,5 +1,5 @@
 
-package ch.hesge.projetmaven;
+package ch.hesge.projetmaven.domaine;
 
 import ch.hesge.projetmaven.domaine.Equipe;
 import ch.hesge.projetmaven.domaine.Coureur;

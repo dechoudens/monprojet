@@ -1,4 +1,4 @@
-package ch.hesge.projetmaven;
+package ch.hesge.projetmaven.metier;
 
 import ch.hesge.projetmaven.domaine.Coureur;
 import ch.hesge.projetmaven.metier.CoureurFactory;
