@@ -14,9 +14,7 @@ import java.util.*;
 public class Equipe {
 
   private String nom;
-  /* Nom de l'équipe */
   private List<Coureur> coureurs;
-  /* Liste des coureurs de l'équipe */
   private int nbCoureur;
 
   public Equipe(String nom, int nbCoureur) {
@@ -25,17 +23,10 @@ public class Equipe {
     this.coureurs = new ArrayList<>();
   }
 
-  /**
-   * Ajoute le Coureur c à la liste des coureurs de l'équipe
-   */
-  public void addCoureur(Coureur c) {
-    this.coureurs.add(c);
+ public void addCoureurs(List coureurs) {
+    this.coureurs = coureurs;
   }
-
-  /**
-   * Retourne une représentation des informations de l'équipe sous la forme d'un
-   * String
-   */
+ 
   public String toString() {
     return "Equipe: " + this.composition() + " \"" + this.nom + "\", " + this.nbCoureur + " coureurs, " + this.meilleurCoureur();
   }
@@ -75,8 +66,7 @@ public class Equipe {
   @Override
   public boolean equals(Object obj) {
 
-    final Equipe other = (Equipe) obj;
-    if (!Objects.equals(this.nom, other.nom)) {
+    if (!Objects.equals(this.nom, obj)) {
       return false;
     }
     return true;

@@ -1,0 +1,5 @@
+Heineken;2
+Cardinal;4
+Feldschlosschen;3
+Carlsberg;2
+Guiness;3

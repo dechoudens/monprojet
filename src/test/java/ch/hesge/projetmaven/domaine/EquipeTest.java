@@ -1,9 +1,7 @@
-
 package ch.hesge.projetmaven.domaine;
 
-import ch.hesge.projetmaven.domaine.Equipe;
-import ch.hesge.projetmaven.domaine.Coureur;
 import java.util.ArrayList;
+import java.util.List;
 import static org.testng.Assert.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -13,6 +11,7 @@ import org.testng.annotations.Test;
  * @author Meckanik
  */
 public class EquipeTest {
+
   private static final int NB_COUREUR = 10;
   private Equipe equipe;
 
@@ -22,57 +21,58 @@ public class EquipeTest {
   }
 
   @Test
-  public void testAddCoureur() {
-
-    Coureur c = new Coureur("UNIT", "Test", 'M', 0);
-
-    int initialSize = equipe.getSizeListeCoureurs();
-    equipe.addCoureur(c);
-    int finalSize = equipe.getSizeListeCoureurs();
-
-    assertTrue(finalSize == initialSize + 1);
-  }
-
-  @Test
   public void testMultipleAddCoureur() {
 
-    Coureur c = new Coureur("UNIT", "Test", 'M', 0);
+    Coureur c = new Coureur("UNIT", "Test", 'M', 0, "equipe");
 
     int initialSize = equipe.getSizeListeCoureurs();
     ArrayList<Coureur> coureurs = new ArrayList();
     for (int i = 0; i < NB_COUREUR; i++) {
-      coureurs.add(new Coureur("UNIT", "Test", 'M', 0));
+      coureurs.add(new Coureur("UNIT", "Test", 'M', 0, "equipe"));
     }
     equipe.setCoureurs(coureurs);
-    
+
     int finalSize = equipe.getSizeListeCoureurs();
 
     assertTrue(finalSize == initialSize + NB_COUREUR);
   }
 
   @Test
-  public void testMeilleur() {
+  public void testMeilleurPremier() {
 
-    ArrayList coureurs = new ArrayList();
-    double temps = 0;
+    List<Coureur> coureurs = new ArrayList();
     for (int i = 0; i < NB_COUREUR; i++) {
-      coureurs.add(new Coureur("UNIT", "Test", 'M', temps + 1));
+      coureurs.add(new Coureur("UNIT", "Test", 'M', i, "equipe"));
     }
     equipe.setCoureurs(coureurs);
 
     Coureur result = equipe.meilleurCoureur();
-    assertEquals(result.getTemps(), 1.0);
+    assertTrue(result.getTemps() == coureurs.get(0).getTemps());
+  }
+  
+  @Test
+  public void testMeilleurDeuxième() {
+
+    List<Coureur> coureurs = new ArrayList();
+    for (int i = 0; i < NB_COUREUR; i++) {
+      if (i == 2) {
+        coureurs.add(new Coureur("UNIT", "Test", 'M', 0, "equipe"));
+      }
+      coureurs.add(new Coureur("UNIT", "Test", 'M', i+10, "equipe"));
+    }
+    equipe.setCoureurs(coureurs);
+
+    Coureur result = equipe.meilleurCoureur();
+    assertTrue(result.getTemps() == coureurs.get(2).getTemps());
   }
 
   @Test
   public void testMajoriteMasculine() {
-
     ArrayList<Coureur> coureurs = new ArrayList();
     for (int i = 0; i < NB_COUREUR; i++) {
-      coureurs.add(new Coureur("UNIT", "Test", 'M', 0));
+      coureurs.add(new Coureur("UNIT", "Test", 'M', 0, "equipe"));
     }
     equipe.setCoureurs(coureurs);
-   
 
     String expResult = "masculine";
     String result = equipe.composition();
@@ -83,26 +83,25 @@ public class EquipeTest {
   public void testMajoriteFeminine() {
     ArrayList coureurs = new ArrayList();
     for (int i = 0; i < NB_COUREUR; i++) {
-      coureurs.add(new Coureur("UNIT", "Test", 'F', 0));
+      coureurs.add(new Coureur("UNIT", "Test", 'F', 0, "equipe"));
     }
     equipe.setCoureurs(coureurs);
 
     String expResult = "feminine";
     String result = equipe.composition();
     assertEquals(result, expResult);
-  } 
+  }
 
   @Test
   public void testMajoriteMixte() {
     ArrayList coureurs = new ArrayList();
-    
+
     boolean change = true;
     for (int i = 0; i < NB_COUREUR; i++) {
       if (change) {
-        coureurs.add(new Coureur("UNIT", "Test", 'F', 0));
-      }
-      else{
-        coureurs.add(new Coureur("UNIT", "Test", 'M', 0));
+        coureurs.add(new Coureur("UNIT", "Test", 'F', 0, "equipe"));
+      } else {
+        coureurs.add(new Coureur("UNIT", "Test", 'M', 0, "equipe"));
       }
       change = !change;
     }
@@ -111,6 +110,69 @@ public class EquipeTest {
     String expResult = "mixte";
     String result = equipe.composition();
     assertEquals(result, expResult);
+  }
+
+  @Test
+  public void addCoureurTest() {
+    ArrayList coureurs = new ArrayList();
+    for (int i = 0; i < NB_COUREUR; i++) {
+      coureurs.add(new Coureur("UNIT", "Test", 'M', 0, "equipe"));
+    }
+
+    equipe.addCoureurs(coureurs);
+    int finalSize = equipe.getSizeListeCoureurs();
+
+    assertTrue(NB_COUREUR == finalSize);
+  }
+
+  @Test
+  public void equalsTestTrue() {
+    String nom = "Equipe de test";
+
+    assertTrue(equipe.equals(nom));
+  }
+
+  @Test
+  public void equalsTestFalse() {
+    String nom = "FalseName";
+
+    assertFalse(equipe.equals(nom));
+  }
+
+  @Test
+  public void getCoureurTest() {
+    List coureursVoulu = new ArrayList();
+    for (int i = 0; i < NB_COUREUR; i++) {
+      coureursVoulu.add(new Coureur("UNIT", "Test", 'M', 0, "equipe"));
+    }
+    equipe.addCoureurs(coureursVoulu);
+
+    List coureursObtenu = equipe.getCoureurs();
+    assertEquals(coureursObtenu, coureursVoulu);
+  }
+
+  @Test
+  public void toStringTestMasculin() {
+    List coureur = new ArrayList();
+    coureur.add(new Coureur("UNIT", "Test", 'M', 0, "equipe"));
+    equipe.addCoureurs(coureur);
+
+    String toStringVoulu = "Equipe: mixte \"Equipe de test\", " + NB_COUREUR + " coureurs, " + coureur.get(0).toString();
+    String toStringObtenu = equipe.toString();
+    
+    assertEquals(toStringVoulu, toStringObtenu);
+  }
+  
+  @Test
+  public void toStringTestFeminin() {
+    List coureur = new ArrayList();
+    coureur.add(new Coureur("UNIT", "Test", 'F', 0, "equipe"));
+    equipe.addCoureurs(coureur);
+
+    String toStringVoulu = "Equipe: feminine \"Equipe de test\", " + NB_COUREUR + " coureurs, " + coureur.get(0).toString();
+    String toStringObtenu = equipe.toString();
+    
+    assertEquals(toStringVoulu, toStringObtenu);
   }
 
 }

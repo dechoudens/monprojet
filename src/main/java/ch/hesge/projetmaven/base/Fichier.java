@@ -1,4 +1,4 @@
-package ch.hesge.projetmaven.metier;
+package ch.hesge.projetmaven.base;
 
 import ch.hesge.projetmaven.outils.FileToStr;
 import java.util.StringTokenizer;

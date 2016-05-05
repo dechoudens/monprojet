@@ -31,7 +31,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>ch.hesge.projetmaven.Main</mainClass>
+                            <mainClass>ch.hesge.projetmaven.Resultats</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
