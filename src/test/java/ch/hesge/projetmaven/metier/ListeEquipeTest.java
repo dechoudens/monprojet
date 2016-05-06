@@ -1,13 +1,9 @@
 package ch.hesge.projetmaven.metier;
 
-import ch.hesge.projetmaven.base.Fichier;
-import ch.hesge.projetmaven.domaine.Equipe;
-import ch.hesge.projetmaven.metier.ListeEquipes;
 import java.util.ArrayList;
 import java.util.List;
 import static org.testng.Assert.*;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 /**

@@ -1,7 +1,5 @@
 package ch.hesge.projetmaven.domaine;
 
-import java.util.Objects;
-
 /**
  * Tour du Canton de Genève
  *
