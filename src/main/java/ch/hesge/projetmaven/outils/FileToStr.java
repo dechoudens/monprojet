@@ -14,7 +14,7 @@ public class FileToStr {
   public static String read (Lecture d'un fichier texte dans un String.
       @param fileName Le nom du fichier texte.
       @return le String contenant l'ensemble des caractères du fichier lu. */
-  public static String read (String fileName) {
+  public String read (String fileName) {
     try {
       FileInputStream f = new FileInputStream(fileName);
       StringBuffer b = new StringBuffer(f.available());

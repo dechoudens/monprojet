@@ -13,7 +13,7 @@ public class ListeEquipeTest {
 
   private ListeEquipes listeEquipe;
 
-  @BeforeMethod
+  /*@BeforeMethod
   public void setUp() throws Exception {
     listeEquipe = new ListeEquipes();
   }
@@ -32,6 +32,6 @@ public class ListeEquipeTest {
     listeEquipe.setListe(new ArrayList());
     
     assertTrue(listeEquipe.isEmpty());
-  }
+  }*/
 
 }

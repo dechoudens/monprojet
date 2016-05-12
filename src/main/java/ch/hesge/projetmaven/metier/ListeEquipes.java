@@ -1,6 +1,7 @@
 package ch.hesge.projetmaven.metier;
 
 import ch.hesge.projetmaven.base.EquipeDao;
+import ch.hesge.projetmaven.base.Fichier;
 import ch.hesge.projetmaven.domaine.Equipe;
 import com.google.common.annotations.VisibleForTesting;
 import java.util.*;
@@ -10,9 +11,10 @@ import java.util.*;
  */
 public class ListeEquipes {
   private List<Equipe> liste;
+  
 
-  public ListeEquipes() {
-    EquipeDao equipeDao = new EquipeDao();
+  public ListeEquipes(Fichier equipe, Fichier coureur) {
+    EquipeDao equipeDao = new EquipeDao(equipe, coureur);
     liste = equipeDao.getListeEquipe();
   }
 

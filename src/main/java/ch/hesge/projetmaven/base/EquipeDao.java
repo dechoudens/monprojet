@@ -12,20 +12,19 @@ import java.util.StringTokenizer;
  */
 public class EquipeDao {
 
-  private final String FICHIER_EQUIPE = "Equipes.txt";
   private final List<Equipe> listeEquipe;
   private final List<Coureur> listeCoureurs;
   private final CoureurDao coureurDao;
-
-  public EquipeDao() {
-    coureurDao = new CoureurDao();
-    listeEquipe = new ArrayList<>();
-    listeCoureurs = coureurDao.getListeCoureur();
+  private Fichier fichier;
+  
+  public EquipeDao(Fichier equipe, Fichier coureur) {
+    this.coureurDao = new CoureurDao(coureur);
+    this.listeEquipe = new ArrayList<>();
+    this.listeCoureurs = coureurDao.getListeCoureur();
+    this.fichier = equipe;
   }
 
   public List getListeEquipe() {
-    String data = FileToStr.read(FICHIER_EQUIPE);
-    Fichier fichier = new Fichier(data);
 
     while (!fichier.isNull()) {
       String ligne = fichier.getLigneCourante();
@@ -42,7 +41,7 @@ public class EquipeDao {
     return listeEquipe;
   }
 
-  public Equipe creerEquipe(String ligne) {
+  private Equipe creerEquipe(String ligne) {
     StringTokenizer strElem = new StringTokenizer(ligne, ";");
     String nomEquipe = strElem.nextToken();
     int nbCoureur = Integer.parseInt(strElem.nextToken());

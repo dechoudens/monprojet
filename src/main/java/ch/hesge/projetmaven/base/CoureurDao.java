@@ -10,17 +10,16 @@ import java.util.StringTokenizer;
  * @author Meckanik
  */
 public class CoureurDao {
-
-  private final String FICHIER_COUREUR = "Coureurs.txt";
+  
   private final List<Coureur> liste;
+  private Fichier fichier;
 
-  public CoureurDao() {
-    liste = new ArrayList<>();
+  public CoureurDao(Fichier fichier) {
+    this.liste = new ArrayList<>();
+    this.fichier = fichier;
   }
-
+  
   public List getListeCoureur() {
-    String data = FileToStr.read(FICHIER_COUREUR);
-    Fichier fichier = new Fichier(data);
 
     while (!fichier.isNull()) {
       String ligne = fichier.getLigneCourante();
@@ -32,7 +31,7 @@ public class CoureurDao {
     return liste;
   }
 
-  public Coureur creerCoureur(String ligne) {
+  private Coureur creerCoureur(String ligne) {
     StringTokenizer strElem = new StringTokenizer(ligne, ";");
     String nomCoureur = strElem.nextToken();
     String prenom = strElem.nextToken();
