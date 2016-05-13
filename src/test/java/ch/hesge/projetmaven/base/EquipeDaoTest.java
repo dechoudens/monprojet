@@ -5,6 +5,7 @@
  */
 package ch.hesge.projetmaven.base;
 
+import ch.hesge.projetmaven.domaine.Equipe;
 import java.util.List;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -26,15 +27,16 @@ public class EquipeDaoTest {
     when(mockedFichierCoureur.getLigneCourante()).thenReturn("DUPONT;Jean;M;32.1;Heineken");
     
     Fichier mockedFichierEquipe = mock(Fichier.class);
-    when(mockedFichierCoureur.size()).thenReturn(1);
-    when(mockedFichierCoureur.isEOF()).thenReturn(false).thenReturn(false).thenReturn(true);
-    when(mockedFichierCoureur.isLigneEquipe()).thenReturn(false);
-    when(mockedFichierCoureur.getLigneCourante()).thenReturn("Heineken;2");
+    when(mockedFichierEquipe.size()).thenReturn(2);
+    when(mockedFichierEquipe.isEOF()).thenReturn(false).thenReturn(false).thenReturn(true);
+    when(mockedFichierEquipe.isLigneEquipe()).thenReturn(false);
+    when(mockedFichierEquipe.getLigneCourante()).thenReturn("Heineken;2");
     
     EquipeDao equipeDaoTest = new EquipeDao(mockedFichierEquipe, mockedFichierCoureur);
-    List coureurs = equipeDaoTest.getListeEquipe();
-    for (Object coureur : coureurs) {
-      assertTrue(coureur.equals(equipeDaoTest));
+    List equipes = equipeDaoTest.getListeEquipe();
+    Equipe equipeTest = new Equipe("Heineken", 2);
+    for (Object equipe : equipes) {
+      assertTrue(equipe.equals(equipeTest));
     }
     
   }

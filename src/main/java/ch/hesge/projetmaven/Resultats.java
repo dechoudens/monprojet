@@ -14,9 +14,9 @@ public class Resultats {
 
   public static void main(String[] args) {
     System.out.println("Traitement des résultats: ");
-    
    
     FileToStr reader = new FileToStr();
+    //String url=this.getClass().getResource("/Coureurs.txt").getPath();
     Fichier equipe = new Fichier(reader.read("Equipes.txt"));
     Fichier coureur = new Fichier(reader.read("Coureurs.txt"));
     
@@ -28,4 +28,5 @@ public class Resultats {
       equipes.afficherResultatsEquipe();
     }
   }
+  
 }

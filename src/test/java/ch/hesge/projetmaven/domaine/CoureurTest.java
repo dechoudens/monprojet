@@ -17,14 +17,14 @@ public class CoureurTest {
   
   @Test
   public void estMonEquipeTestTrue(){
-    Equipe e = new Equipe("equipe", 3);
+    Equipe e = new Equipe("equipe");
     
     assertTrue(coureur.estMonEquipe(e));
   }
   
   @Test
   public void estMonEquipeTestFalse(){
-    Equipe e = new Equipe("mauvaise equipe", 3);
+    Equipe e = new Equipe("mauvaise equipe");
     
     assertFalse(coureur.estMonEquipe(e));
   }

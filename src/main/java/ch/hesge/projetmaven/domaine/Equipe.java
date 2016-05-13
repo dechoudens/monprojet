@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class Equipe {
 
-  private String nom;
+  private final String nom;
   private List<Coureur> coureurs;
   private int nbCoureur;
 
@@ -21,6 +21,10 @@ public class Equipe {
     this.nom = nom;
     this.nbCoureur = nbCoureur;
     this.coureurs = new ArrayList<>();
+  }
+  
+  public Equipe(String nom) {
+    this.nom = nom;
   }
 
  public void addCoureurs(List coureurs) {
@@ -66,7 +70,7 @@ public class Equipe {
   @Override
   public boolean equals(Object obj) {
 
-    if (!Objects.equals(this.nom, obj)) {
+    if (!Objects.equals(this.nom, ((Equipe)obj).nom)) {
       return false;
     }
     return true;

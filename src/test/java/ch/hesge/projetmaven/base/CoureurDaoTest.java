@@ -34,8 +34,9 @@ public class CoureurDaoTest {
     
     CoureurDao coureurDaoTest = new CoureurDao(mockedFichier);
     List coureurs = coureurDaoTest.getListeCoureur();
+    Coureur coureurTest = new Coureur("DUPONT", "Jean", 'M', 32.1, "Heineken");
     for (Object coureur : coureurs) {
-      assertTrue(coureur.equals(coureurDaoTest));
+      assertTrue(coureur.equals(coureurTest));
     }
   }
 }

@@ -127,16 +127,14 @@ public class EquipeTest {
 
   @Test
   public void equalsTestTrue() {
-    String nom = "Equipe de test";
-
-    assertTrue(equipe.equals(nom));
+    Equipe equipeTest = new Equipe("Equipe de test");
+    assertTrue(equipe.equals(equipeTest));
   }
 
   @Test
   public void equalsTestFalse() {
-    String nom = "FalseName";
-
-    assertFalse(equipe.equals(nom));
+    Equipe equipeTest = new Equipe("FalseName");
+    assertFalse(equipe.equals(equipeTest));
   }
 
   @Test

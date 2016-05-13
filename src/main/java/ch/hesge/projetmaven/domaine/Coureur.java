@@ -1,5 +1,7 @@
 package ch.hesge.projetmaven.domaine;
 
+import java.util.Objects;
+
 /**
  * Tour du Canton de Genève
  *
@@ -14,7 +16,7 @@ public class Coureur {
   private String prenom;    /* Prénom du coureur */
   private boolean masculin; /* true si le sexe est masculin ("M"), false si le sexe est féminin ("F") */
   private double temps;     /* Temps réalisé */
-private String equipe;
+  private String equipe;
 
   public Coureur(String nom, String prenom, char sexe, double temps, String equipe) {
     this.nom = nom;
@@ -38,7 +40,7 @@ private String equipe;
   }
 
   public boolean estMonEquipe(Equipe e) {
-    return e.equals(this.equipe);
+    return e.equals(new Equipe(this.equipe));
   }
 
   public boolean getSexe(){
@@ -48,4 +50,28 @@ private String equipe;
   public double getTemps(){
       return this.temps;
   }
+
+  @Override
+  public boolean equals(Object obj) {
+
+    final Coureur other = (Coureur) obj;
+    if (this.masculin != other.masculin) {
+      return false;
+    }
+    if (this.temps != other.temps) {
+      return false;
+    }
+    if (!Objects.equals(this.nom, other.nom)) {
+      return false;
+    }
+    if (!Objects.equals(this.prenom, other.prenom)) {
+      return false;
+    }
+    if (!Objects.equals(this.equipe, other.equipe)) {
+      return false;
+    }
+    return true;
+  }
+  
+  
 } // Coureur
