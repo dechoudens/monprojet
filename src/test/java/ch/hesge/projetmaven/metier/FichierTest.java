@@ -74,10 +74,10 @@ public class FichierTest {
     fichier = new Fichier(lignes);
 
     fichier.nextLigne();
-    assertFalse(fichier.isNull());
+    assertFalse(fichier.isEOF());
 
     fichier.nextLigne();
-    assertTrue(fichier.isNull());
+    assertTrue(fichier.isEOF());
   }
 
   @Test(dataProvider = "size")

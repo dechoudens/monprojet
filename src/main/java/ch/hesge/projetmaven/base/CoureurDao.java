@@ -1,7 +1,6 @@
 package ch.hesge.projetmaven.base;
 
 import ch.hesge.projetmaven.domaine.Coureur;
-import ch.hesge.projetmaven.outils.FileToStr;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -11,21 +10,19 @@ import java.util.StringTokenizer;
  */
 public class CoureurDao {
   
-  private final List<Coureur> liste;
-  private Fichier fichier;
+  private final List<Coureur> liste = new ArrayList<>();;
+  private final Fichier fichier;
 
   public CoureurDao(Fichier fichier) {
-    this.liste = new ArrayList<>();
     this.fichier = fichier;
   }
   
   public List getListeCoureur() {
 
-    while (!fichier.isNull()) {
+    while (!fichier.isEOF()) {
       String ligne = fichier.getLigneCourante();
       Coureur c = creerCoureur(ligne);
       liste.add(c);
-      fichier.nextLigne();
     }
 
     return liste;

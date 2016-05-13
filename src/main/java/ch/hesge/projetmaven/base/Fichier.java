@@ -41,7 +41,7 @@ public class Fichier {
     return listeLigne[ligneCourante];
   }
 
-  public boolean isNull() {
+  public boolean isEOF() {
     return ligneCourante >= listeSize;
   }
 
