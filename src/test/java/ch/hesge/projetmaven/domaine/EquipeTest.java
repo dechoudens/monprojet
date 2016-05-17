@@ -2,7 +2,6 @@ package ch.hesge.projetmaven.domaine;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -27,24 +26,17 @@ public class EquipeTest {
 
   @Test
   public void meilleurCoureur_should_be_the_first() {
-    Coureur mockCoureur1 = mock(Coureur.class);
-    when(mockCoureur1.getTemps()).thenReturn(1.0);
+    Coureur coureur1 = new Coureur("test1", "test1", 'M', 1.0, "test1");
+    Coureur coureur2 = new Coureur("test2", "test2", 'M', 1.0, "test2");
+    Coureur coureur3 = new Coureur("test3", "test3", 'M', 1.0, "test3");
+    Coureur coureur4 = new Coureur("test4", "test4", 'M', 1.0, "test4");
     
-    Coureur mockCoureur2 = mock(Coureur.class);
-    when(mockCoureur2.getTemps()).thenReturn(1.0);
-    
-    Coureur mockCoureur3 = mock(Coureur.class);
-    when(mockCoureur3.getTemps()).thenReturn(1.0);
-    
-    Coureur mockCoureur4 = mock(Coureur.class);
-    when(mockCoureur4.getTemps()).thenReturn(1.0);
-    
-    List coureurs = Arrays.asList(mockCoureur1, mockCoureur2, mockCoureur3, mockCoureur4);
+    List coureurs = Arrays.asList(coureur1, coureur2, coureur3, coureur4);
 
     equipe.addCoureurs(coureurs);
     Coureur result = equipe.meilleurCoureur();
 
-    assertEquals(result.getTemps(), mockCoureur1.getTemps());
+    assertEquals(result, coureur1);
   }
   
   @Test
@@ -186,8 +178,33 @@ public class EquipeTest {
   }
 
   @Test
-  public void equals_should_return_False() {
+  public void equals_wrong_name_should_return_false() {
     Equipe equipeTest = new Equipe("FalseName");
+    assertFalse(equipe.equals(equipeTest));
+  }
+  
+  @Test
+  public void equals_different_coureurList_should_return_false(){
+    Coureur coureur1 = new Coureur("test1", "test1", 'M', 1.0, "test1");
+    Coureur coureur2 = new Coureur("test2", "test2", 'M', 1.0, "test2");
+    Coureur coureur3 = new Coureur("test3", "test3", 'M', 1.0, "test3");
+    Coureur coureur4 = new Coureur("test4", "test4", 'M', 1.0, "test4");
+    
+    List coureurs1 = Arrays.asList(coureur1, coureur2, coureur3, coureur4);
+
+    equipe.addCoureurs(coureurs1);
+    
+    Equipe equipeTest = new Equipe("Equipe de test", 4);
+    
+    Coureur coureur5 = new Coureur("test1", "test1", 'M', 1.0, "test1");
+    Coureur coureur6 = new Coureur("test2", "test2", 'M', 1.0, "test2");
+    Coureur coureur7 = new Coureur("test3", "test3", 'F', 1.0, "test3");
+    Coureur coureur8 = new Coureur("test4", "test4", 'F', 1.0, "test4");
+    
+    List coureurs2 = Arrays.asList(coureur5, coureur6, coureur7, coureur8);
+    
+    equipeTest.addCoureurs(coureurs2); 
+    
     assertFalse(equipe.equals(equipeTest));
   }
 
