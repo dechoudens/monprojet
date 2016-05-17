@@ -6,16 +6,10 @@
 package ch.hesge.projetmaven.base;
 
 import ch.hesge.projetmaven.domaine.Coureur;
-import ch.hesge.projetmaven.outils.FileToStr;
-import java.io.File;
-import java.io.InputStream;
 import java.util.List;
-import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**

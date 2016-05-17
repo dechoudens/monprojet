@@ -1,5 +1,6 @@
 package ch.hesge.projetmaven;
 
+import ch.hesge.projetmaven.base.EquipeDao;
 import ch.hesge.projetmaven.base.Fichier;
 import ch.hesge.projetmaven.metier.ListeEquipes;
 import ch.hesge.projetmaven.outils.FileToStr;
@@ -20,7 +21,8 @@ public class Resultats {
     Fichier equipe = new Fichier(reader.read("Equipes.txt"));
     Fichier coureur = new Fichier(reader.read("Coureurs.txt"));
     
-    ListeEquipes equipes = new ListeEquipes(equipe, coureur);
+    EquipeDao equipeDao = new EquipeDao(equipe, coureur);
+    ListeEquipes equipes = new ListeEquipes(equipeDao);
 
     if (equipes.isEmpty()) {
       System.out.println("Il n'y a point d'équipe");

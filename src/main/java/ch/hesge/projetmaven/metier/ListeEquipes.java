@@ -13,8 +13,7 @@ public class ListeEquipes {
   private List<Equipe> liste;
   
 
-  public ListeEquipes(Fichier equipe, Fichier coureur) {
-    EquipeDao equipeDao = new EquipeDao(equipe, coureur);
+  public ListeEquipes(EquipeDao equipeDao) {
     liste = equipeDao.getListeEquipe();
   }
 

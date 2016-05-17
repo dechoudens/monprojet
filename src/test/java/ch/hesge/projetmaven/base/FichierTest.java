@@ -1,4 +1,4 @@
-package ch.hesge.projetmaven.metier;
+package ch.hesge.projetmaven.base;
 
 import ch.hesge.projetmaven.base.Fichier;
 import static org.testng.Assert.*;

@@ -17,9 +17,11 @@ import org.testng.annotations.Test;
  * @author meckanik
  */
 public class EquipeDaoTest {
+  EquipeDao equipeDaoMock = mock(EquipeDao.class);
   
   @Test
   public void getListeEquipe_returns_list_of_Equipe() {
+    
     Fichier mockedFichierCoureur = mock(Fichier.class);
     when(mockedFichierCoureur.size()).thenReturn(2);
     when(mockedFichierCoureur.isEOF()).thenReturn(false).thenReturn(false).thenReturn(false).thenReturn(true);

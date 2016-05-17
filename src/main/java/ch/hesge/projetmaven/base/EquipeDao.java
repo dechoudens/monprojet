@@ -46,7 +46,7 @@ public class EquipeDao {
     return new Equipe(nomEquipe, nbCoureur);
   }
 
-  public ArrayList getCoureursEquipe(Equipe e) {
+  private ArrayList getCoureursEquipe(Equipe e) {
     ArrayList coureursEquipe = new ArrayList();
     for (Coureur coureur : listeCoureurs) {
       if (coureur.estMonEquipe(e)) {
