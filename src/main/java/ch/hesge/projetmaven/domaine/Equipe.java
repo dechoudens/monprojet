@@ -73,7 +73,14 @@ public class Equipe {
     if (!Objects.equals(this.nom, ((Equipe)obj).nom)) {
       return false;
     }
+    if (!Objects.equals(this.coureurs, ((Equipe)obj).coureurs)) {
+      return false;
+    }
     return true;
+  }
+  
+  String getNom(){
+    return this.nom;
   }
 
   /**

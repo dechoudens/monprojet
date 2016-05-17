@@ -40,7 +40,7 @@ public class Coureur {
   }
 
   public boolean estMonEquipe(Equipe e) {
-    return e.equals(new Equipe(this.equipe));
+    return this.equipe.equals(e.getNom());
   }
 
   public boolean getSexe(){

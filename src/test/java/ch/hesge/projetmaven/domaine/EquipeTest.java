@@ -181,7 +181,7 @@ public class EquipeTest {
 
   @Test
   public void equals_should_return_True() {
-    Equipe equipeTest = new Equipe("Equipe de test");
+    Equipe equipeTest = new Equipe("Equipe de test", 4);
     assertTrue(equipe.equals(equipeTest));
   }
 

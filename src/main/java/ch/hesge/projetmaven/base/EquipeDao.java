@@ -30,9 +30,9 @@ public class EquipeDao {
 
       ArrayList coureursEquipe = getCoureursEquipe(e);
       e.addCoureurs(coureursEquipe);
-
+      
       listeEquipe.add(e);
-
+      fichier.nextLigne();
     }
 
     return listeEquipe;

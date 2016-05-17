@@ -18,11 +18,11 @@ public class CoureurDao {
   }
   
   public List getListeCoureur() {
-
     while (!fichier.isEOF()) {
       String ligne = fichier.getLigneCourante();
       Coureur c = creerCoureur(ligne);
       liste.add(c);
+      fichier.nextLigne();
     }
 
     return liste;

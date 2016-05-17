@@ -9,7 +9,7 @@ public class Fichier {
 
   private final String[] listeLigne;
   private int ligneCourante;
-  private final int listeSize;
+  private int listeSize;
 
   public Fichier(String data) {
 
