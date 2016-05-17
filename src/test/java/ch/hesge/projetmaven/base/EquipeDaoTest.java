@@ -9,6 +9,7 @@ import ch.hesge.projetmaven.domaine.Equipe;
 import java.util.List;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import org.testng.annotations.Test;
 
@@ -41,6 +42,26 @@ public class EquipeDaoTest {
       assertTrue(equipe.equals(equipeTest));
     }
     
+  }
+  
+  @Test
+  public void getListeEquipe_returns_Empty_list_of_Equipe() {
+    
+    Fichier mockedFichierCoureur = mock(Fichier.class);
+    when(mockedFichierCoureur.size()).thenReturn(2);
+    when(mockedFichierCoureur.isEOF()).thenReturn(false).thenReturn(false).thenReturn(false).thenReturn(true);
+    when(mockedFichierCoureur.isLigneEquipe()).thenReturn(false);
+    when(mockedFichierCoureur.getLigneCourante()).thenReturn("DUPONT;Jean;M;32.1;Heineken");
+    
+    Fichier mockedFichierEquipe = mock(Fichier.class);
+    when(mockedFichierEquipe.size()).thenReturn(0);
+    when(mockedFichierEquipe.isEOF()).thenReturn(true);
+    when(mockedFichierEquipe.isLigneEquipe()).thenReturn(false);
+    
+    EquipeDao equipeDaoTest = new EquipeDao(mockedFichierEquipe, mockedFichierCoureur);
+    List equipes = equipeDaoTest.getListeEquipe();
+    
+    assertEquals(equipes.size(), 0);
   }
   
 }

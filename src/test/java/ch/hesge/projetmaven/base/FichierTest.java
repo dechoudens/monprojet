@@ -1,6 +1,5 @@
 package ch.hesge.projetmaven.base;
 
-import ch.hesge.projetmaven.base.Fichier;
 import static org.testng.Assert.*;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -69,7 +68,7 @@ public class FichierTest {
   }
 
   @Test
-  public void isNullTest() {
+  public void isEOFTest() {
     String lignes = "DUPONT;Jean;M;32.1\n\rFAVRE;Martine;F;30.2";
     fichier = new Fichier(lignes);
 

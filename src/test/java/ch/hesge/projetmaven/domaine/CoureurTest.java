@@ -1,6 +1,5 @@
 package ch.hesge.projetmaven.domaine;
 
-import static org.mockito.Mockito.mock;
 import static org.testng.Assert.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -64,4 +63,5 @@ public class CoureurTest {
     Coureur coureurTest = new Coureur("Wilson", "Wilson", 'M', 12, "equipes");
     assertFalse(coureur.equals(coureurTest));
   }
+  
 }

@@ -7,9 +7,9 @@ import java.util.StringTokenizer;
  */
 public class Fichier {
 
-  private String[] listeLigne;
+  private final String[] listeLigne;
   private int ligneCourante;
-  private int listeSize;
+  private final int listeSize;
 
   public Fichier(String data) {
 

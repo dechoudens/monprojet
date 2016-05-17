@@ -1,7 +1,6 @@
 package ch.hesge.projetmaven.metier;
 
 import ch.hesge.projetmaven.base.EquipeDao;
-import ch.hesge.projetmaven.base.Fichier;
 import ch.hesge.projetmaven.domaine.Equipe;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,38 +9,38 @@ import static org.mockito.Mockito.when;
 import static org.testng.Assert.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import static org.mockito.Mockito.mock;
 
 /**
  * @author Meckanik
  */
-public class ListeEquipeTest {
+public class ListeEquipesTest {
 
   private ListeEquipes listeEquipe;
   EquipeDao mockedEquipeDao = mock(EquipeDao.class);
-
+  ArrayList equipes = new ArrayList();
+  
   @BeforeMethod
   public void setUp() throws Exception {
-    ArrayList equipes = new ArrayList();
-    equipes.add(new Equipe("Heineken", 2));
     
-    when(mockedEquipeDao.getListeEquipe()).thenReturn(equipes);
-    listeEquipe = new ListeEquipes(mockedEquipeDao);
+    
   }
 
   @Test
   public void isEmptyTestFalse() {
-    List equipe = listeEquipe.getListe();
+    equipes.add(new Equipe("Heineken", 2));
+    when(mockedEquipeDao.getListeEquipe()).thenReturn(equipes);
+    listeEquipe = new ListeEquipes(mockedEquipeDao);
 
-    if (equipe.size() > 0) {
-      assertFalse(listeEquipe.isEmpty());
-    }
+    assertFalse(listeEquipe.isEmpty());
   }
   
   @Test
   public void isEmptyTestTrue() {
-    listeEquipe.setListe(new ArrayList());
+    when(mockedEquipeDao.getListeEquipe()).thenReturn(new ArrayList());
+    listeEquipe = new ListeEquipes(mockedEquipeDao);
     
     assertTrue(listeEquipe.isEmpty());
   }
-
+  
 }

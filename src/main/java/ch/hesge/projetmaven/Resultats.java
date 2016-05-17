@@ -4,8 +4,6 @@ import ch.hesge.projetmaven.base.EquipeDao;
 import ch.hesge.projetmaven.base.Fichier;
 import ch.hesge.projetmaven.metier.ListeEquipes;
 import ch.hesge.projetmaven.outils.FileToStr;
-import java.io.File;
-import java.nio.file.Files;
 
 /**
  *

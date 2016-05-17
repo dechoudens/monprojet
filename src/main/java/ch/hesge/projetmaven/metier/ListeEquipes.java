@@ -1,7 +1,6 @@
 package ch.hesge.projetmaven.metier;
 
 import ch.hesge.projetmaven.base.EquipeDao;
-import ch.hesge.projetmaven.base.Fichier;
 import ch.hesge.projetmaven.domaine.Equipe;
 import com.google.common.annotations.VisibleForTesting;
 import java.util.*;
@@ -18,7 +17,7 @@ public class ListeEquipes {
   }
 
   public boolean isEmpty(){
-    return liste.size() == 0;
+    return liste.isEmpty();
   }
 
   public void afficherResultatsEquipe() {
@@ -26,16 +25,6 @@ public class ListeEquipes {
     while (it.hasNext()) {
       System.out.println(it.next());
     }
-  }
-  
-  @VisibleForTesting
-  List getListe(){
-    return liste;
-  }
-  
-  @VisibleForTesting
-  void setListe(List equipe){
-    this.liste = equipe;
   }
   
 }

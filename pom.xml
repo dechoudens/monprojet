@@ -68,6 +68,27 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>0.32</version>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>mutationCoverage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <targetClasses>
+                        <param>ch.hesge.projetmaven*</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>ch.hesge.projetmaven*</param>
+                    </targetTests>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <dependencies>

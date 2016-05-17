@@ -1,7 +1,11 @@
 package ch.hesge.projetmaven.domaine;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 import static org.testng.Assert.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -12,141 +16,171 @@ import org.testng.annotations.Test;
  */
 public class EquipeTest {
 
-  private static final int NB_COUREUR = 10;
   private Equipe equipe;
+  List mockedList;
 
   @BeforeMethod
   public void setUp() throws Exception {
-    equipe = new Equipe("Equipe de test", NB_COUREUR);
+    equipe = new Equipe("Equipe de test", 4);
+    mockedList = mock(ArrayList.class);
   }
 
   @Test
-  public void testMultipleAddCoureur() {
+  public void meilleurCoureur_should_be_the_first() {
+    Coureur mockCoureur1 = mock(Coureur.class);
+    when(mockCoureur1.getTemps()).thenReturn(2.0);
+    
+    Coureur mockCoureur2 = mock(Coureur.class);
+    when(mockCoureur2.getTemps()).thenReturn(5.0);
+    
+    Coureur mockCoureur3 = mock(Coureur.class);
+    when(mockCoureur3.getTemps()).thenReturn(23.0);
+    
+    Coureur mockCoureur4 = mock(Coureur.class);
+    when(mockCoureur4.getTemps()).thenReturn(65.0);
+    
+    List coureurs = Arrays.asList(mockCoureur1, mockCoureur2, mockCoureur3, mockCoureur4);
 
-    Coureur c = new Coureur("UNIT", "Test", 'M', 0, "equipe");
-
-    int initialSize = equipe.getSizeListeCoureurs();
-    ArrayList<Coureur> coureurs = new ArrayList();
-    for (int i = 0; i < NB_COUREUR; i++) {
-      coureurs.add(new Coureur("UNIT", "Test", 'M', 0, "equipe"));
-    }
-    equipe.setCoureurs(coureurs);
-
-    int finalSize = equipe.getSizeListeCoureurs();
-
-    assertTrue(finalSize == initialSize + NB_COUREUR);
-  }
-
-  @Test
-  public void testMeilleurPremier() {
-
-    List<Coureur> coureurs = new ArrayList();
-    for (int i = 0; i < NB_COUREUR; i++) {
-      coureurs.add(new Coureur("UNIT", "Test", 'M', i, "equipe"));
-    }
-    equipe.setCoureurs(coureurs);
-
+    equipe.addCoureurs(coureurs);
     Coureur result = equipe.meilleurCoureur();
-    assertTrue(result.getTemps() == coureurs.get(0).getTemps());
+
+    assertEquals(result.getTemps(), mockCoureur1.getTemps());
   }
   
   @Test
-  public void testMeilleurDeuxième() {
+  public void meilleurCoureur_should_be_the_last() {
+    Coureur mockCoureur1 = mock(Coureur.class);
+    when(mockCoureur1.getTemps()).thenReturn(31.0);
+    
+    Coureur mockCoureur2 = mock(Coureur.class);
+    when(mockCoureur2.getTemps()).thenReturn(2.0);
+    
+    Coureur mockCoureur3 = mock(Coureur.class);
+    when(mockCoureur3.getTemps()).thenReturn(4.0);
+    
+    Coureur mockCoureur4 = mock(Coureur.class);
+    when(mockCoureur4.getTemps()).thenReturn(1.0);
+    
+    List coureurs = Arrays.asList(mockCoureur1, mockCoureur2, mockCoureur3, mockCoureur4);
 
-    List<Coureur> coureurs = new ArrayList();
-    for (int i = 0; i < NB_COUREUR; i++) {
-      if (i == 2) {
-        coureurs.add(new Coureur("UNIT", "Test", 'M', 0, "equipe"));
-      }
-      coureurs.add(new Coureur("UNIT", "Test", 'M', i+10, "equipe"));
-    }
-    equipe.setCoureurs(coureurs);
-
+    equipe.addCoureurs(coureurs);
     Coureur result = equipe.meilleurCoureur();
-    assertTrue(result.getTemps() == coureurs.get(2).getTemps());
+
+    assertEquals(result.getTemps(), mockCoureur4.getTemps());
   }
+  
 
   @Test
-  public void testMajoriteMasculine() {
-    ArrayList<Coureur> coureurs = new ArrayList();
-    for (int i = 0; i < NB_COUREUR; i++) {
-      coureurs.add(new Coureur("UNIT", "Test", 'M', 0, "equipe"));
-    }
-    equipe.setCoureurs(coureurs);
+  public void Composition_should_return_Masculine() {
+    Coureur mockCoureur1 = mock(Coureur.class);
+    when(mockCoureur1.getSexe()).thenReturn(true);
+    
+    Coureur mockCoureur2 = mock(Coureur.class);
+    when(mockCoureur2.getSexe()).thenReturn(true);
+    
+    Coureur mockCoureur3 = mock(Coureur.class);
+    when(mockCoureur3.getSexe()).thenReturn(true);
+    
+    Coureur mockCoureur4 = mock(Coureur.class);
+    when(mockCoureur4.getSexe()).thenReturn(true);
+    
+    List coureurs = Arrays.asList(mockCoureur1, mockCoureur2, mockCoureur3, mockCoureur4);
 
+
+    equipe.addCoureurs(coureurs);
     String expResult = "masculine";
     String result = equipe.composition();
     assertEquals(result, expResult);
   }
 
   @Test
-  public void testMajoriteFeminine() {
-    ArrayList coureurs = new ArrayList();
-    for (int i = 0; i < NB_COUREUR; i++) {
-      coureurs.add(new Coureur("UNIT", "Test", 'F', 0, "equipe"));
-    }
-    equipe.setCoureurs(coureurs);
+  public void Composition_should_return_Feminine() {
+    Coureur mockCoureur1 = mock(Coureur.class);
+    when(mockCoureur1.getSexe()).thenReturn(false);
+    
+    Coureur mockCoureur2 = mock(Coureur.class);
+    when(mockCoureur2.getSexe()).thenReturn(false);
+    
+    Coureur mockCoureur3 = mock(Coureur.class);
+    when(mockCoureur3.getSexe()).thenReturn(false);
+    
+    Coureur mockCoureur4 = mock(Coureur.class);
+    when(mockCoureur4.getSexe()).thenReturn(false);
+    
+    List coureurs = Arrays.asList(mockCoureur1, mockCoureur2, mockCoureur3, mockCoureur4);
 
+
+    equipe.addCoureurs(coureurs);
     String expResult = "feminine";
     String result = equipe.composition();
     assertEquals(result, expResult);
   }
 
   @Test
-  public void testMajoriteMixte() {
-    ArrayList coureurs = new ArrayList();
+  public void Composition_should_return_Mixte() {
+    Coureur mockCoureur1 = mock(Coureur.class);
+    when(mockCoureur1.getSexe()).thenReturn(true);
+    
+    Coureur mockCoureur2 = mock(Coureur.class);
+    when(mockCoureur2.getSexe()).thenReturn(false);
+    
+    Coureur mockCoureur3 = mock(Coureur.class);
+    when(mockCoureur3.getSexe()).thenReturn(true);
+    
+    Coureur mockCoureur4 = mock(Coureur.class);
+    when(mockCoureur4.getSexe()).thenReturn(true);
+    
+    List coureurs = Arrays.asList(mockCoureur1, mockCoureur2, mockCoureur3, mockCoureur4);
 
-    boolean change = true;
-    for (int i = 0; i < NB_COUREUR; i++) {
-      if (change) {
-        coureurs.add(new Coureur("UNIT", "Test", 'F', 0, "equipe"));
-      } else {
-        coureurs.add(new Coureur("UNIT", "Test", 'M', 0, "equipe"));
-      }
-      change = !change;
-    }
-    equipe.setCoureurs(coureurs);
 
+    equipe.addCoureurs(coureurs);
     String expResult = "mixte";
     String result = equipe.composition();
     assertEquals(result, expResult);
   }
 
   @Test
-  public void addCoureurTest() {
-    ArrayList coureurs = new ArrayList();
-    for (int i = 0; i < NB_COUREUR; i++) {
-      coureurs.add(new Coureur("UNIT", "Test", 'M', 0, "equipe"));
-    }
-
-    equipe.addCoureurs(coureurs);
+  public void addCoureur_adds_a_list_of_4_Coureur() {
+    when(mockedList.size()).thenReturn(4);
+    
+    equipe.addCoureurs(mockedList);
     int finalSize = equipe.getSizeListeCoureurs();
 
-    assertTrue(NB_COUREUR == finalSize);
+    assertEquals(finalSize, 4);
+  }
+  
+  @Test
+  public void addCoureur_adds_an_empty_list() {
+    equipe.addCoureurs(mockedList);
+    int finalSize = equipe.getSizeListeCoureurs();
+
+    assertEquals(finalSize, 0);
   }
 
   @Test
-  public void equalsTestTrue() {
+  public void equals_should_return_True() {
     Equipe equipeTest = new Equipe("Equipe de test");
     assertTrue(equipe.equals(equipeTest));
   }
 
   @Test
-  public void equalsTestFalse() {
+  public void equals_should_return_False() {
     Equipe equipeTest = new Equipe("FalseName");
     assertFalse(equipe.equals(equipeTest));
   }
 
   @Test
-  public void getCoureurTest() {
-    List coureursVoulu = new ArrayList();
-    for (int i = 0; i < NB_COUREUR; i++) {
-      coureursVoulu.add(new Coureur("UNIT", "Test", 'M', 0, "equipe"));
-    }
-    equipe.addCoureurs(coureursVoulu);
+  public void getCoureurs_returns_the_list_of_Coureur() {
+
+    when(mockedList.get(0)).thenReturn(new Coureur("UNIT", "Test", 'F', 13, "equipe"));
+    when(mockedList.get(1)).thenReturn(new Coureur("UNIT", "Test", 'M', 24, "equipe"));
+    when(mockedList.get(2)).thenReturn(new Coureur("UNIT", "Test", 'F', 1, "equipe"));
+    when(mockedList.get(3)).thenReturn(new Coureur("UNIT", "Test", 'F', 2, "equipe"));
+
+    equipe.addCoureurs(mockedList);
 
     List coureursObtenu = equipe.getCoureurs();
-    assertEquals(coureursObtenu, coureursVoulu);
+    assertEquals(coureursObtenu, mockedList);
   }
 
   @Test
@@ -155,21 +189,21 @@ public class EquipeTest {
     coureur.add(new Coureur("UNIT", "Test", 'M', 0, "equipe"));
     equipe.addCoureurs(coureur);
 
-    String toStringVoulu = "Equipe: mixte \"Equipe de test\", " + NB_COUREUR + " coureurs, " + coureur.get(0).toString();
+    String toStringVoulu = "Equipe: mixte \"Equipe de test\", " + 4 + " coureurs, " + coureur.get(0).toString();
     String toStringObtenu = equipe.toString();
-    
+
     assertEquals(toStringVoulu, toStringObtenu);
   }
-  
+
   @Test
   public void toStringTestFeminin() {
     List coureur = new ArrayList();
     coureur.add(new Coureur("UNIT", "Test", 'F', 0, "equipe"));
     equipe.addCoureurs(coureur);
 
-    String toStringVoulu = "Equipe: feminine \"Equipe de test\", " + NB_COUREUR + " coureurs, " + coureur.get(0).toString();
+    String toStringVoulu = "Equipe: feminine \"Equipe de test\", " + 4 + " coureurs, " + coureur.get(0).toString();
     String toStringObtenu = equipe.toString();
-    
+
     assertEquals(toStringVoulu, toStringObtenu);
   }
 
