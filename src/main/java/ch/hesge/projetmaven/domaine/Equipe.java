@@ -84,20 +84,4 @@ public class Equipe {
     return coureurs.size();
   }
 
-  /**
-   * utilisée uniquement pour les tests
-   */
-  @VisibleForTesting
-  void setCoureurs(List coureurs) {
-    this.coureurs = coureurs;
-  }
-
-  /**
-   * utilisée uniquement pour les tests
-   */
-  @VisibleForTesting
-  List getCoureurs() {
-    return coureurs;
-  }
-
 }

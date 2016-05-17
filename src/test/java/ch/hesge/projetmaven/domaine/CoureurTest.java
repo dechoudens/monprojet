@@ -64,4 +64,28 @@ public class CoureurTest {
     assertFalse(coureur.equals(coureurTest));
   }
   
+  @Test
+  public void getTemps_returns_12(){
+    Coureur coureurTest = new Coureur("Wilson", "Wilson", 'M', 12.0, "equipes");
+    assertEquals(coureurTest.getTemps(), 12.0);
+  }
+  
+  @Test
+  public void getTemps_returns_0(){
+    Coureur coureurTest = new Coureur("Wilson", "Wilson", 'M', 0.0, "equipes");
+    assertEquals(coureurTest.getTemps(), 0.0);
+  }
+  
+  @Test
+  public void toString_returns_right_sexe_masculin(){
+    Coureur coureurTest = new Coureur("Wilson", "Wilson", 'M', 0.0, "equipes");
+    assertEquals(coureurTest.toString(),  "meilleur = Wilson Wilson (M) 0.0");
+  }
+  
+  @Test
+  public void toString_returns_right_sexe_feminin(){
+    Coureur coureurTest = new Coureur("Wilson", "Wilson", 'F', 0.0, "equipes");
+    assertEquals(coureurTest.toString(),  "meilleur = Wilson Wilson (F) 0.0");
+  }
+  
 }

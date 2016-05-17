@@ -28,16 +28,16 @@ public class EquipeTest {
   @Test
   public void meilleurCoureur_should_be_the_first() {
     Coureur mockCoureur1 = mock(Coureur.class);
-    when(mockCoureur1.getTemps()).thenReturn(2.0);
+    when(mockCoureur1.getTemps()).thenReturn(1.0);
     
     Coureur mockCoureur2 = mock(Coureur.class);
-    when(mockCoureur2.getTemps()).thenReturn(5.0);
+    when(mockCoureur2.getTemps()).thenReturn(1.0);
     
     Coureur mockCoureur3 = mock(Coureur.class);
-    when(mockCoureur3.getTemps()).thenReturn(23.0);
+    when(mockCoureur3.getTemps()).thenReturn(1.0);
     
     Coureur mockCoureur4 = mock(Coureur.class);
-    when(mockCoureur4.getTemps()).thenReturn(65.0);
+    when(mockCoureur4.getTemps()).thenReturn(1.0);
     
     List coureurs = Arrays.asList(mockCoureur1, mockCoureur2, mockCoureur3, mockCoureur4);
 
@@ -50,13 +50,13 @@ public class EquipeTest {
   @Test
   public void meilleurCoureur_should_be_the_last() {
     Coureur mockCoureur1 = mock(Coureur.class);
-    when(mockCoureur1.getTemps()).thenReturn(31.0);
+    when(mockCoureur1.getTemps()).thenReturn(2.0);
     
     Coureur mockCoureur2 = mock(Coureur.class);
     when(mockCoureur2.getTemps()).thenReturn(2.0);
     
     Coureur mockCoureur3 = mock(Coureur.class);
-    when(mockCoureur3.getTemps()).thenReturn(4.0);
+    when(mockCoureur3.getTemps()).thenReturn(2.0);
     
     Coureur mockCoureur4 = mock(Coureur.class);
     when(mockCoureur4.getTemps()).thenReturn(1.0);
@@ -67,6 +67,28 @@ public class EquipeTest {
     Coureur result = equipe.meilleurCoureur();
 
     assertEquals(result.getTemps(), mockCoureur4.getTemps());
+  }
+  
+  @Test
+  public void meilleurCoureur_should_be_the_second() {
+    Coureur mockCoureur1 = mock(Coureur.class);
+    when(mockCoureur1.getTemps()).thenReturn(2.0);
+    
+    Coureur mockCoureur2 = mock(Coureur.class);
+    when(mockCoureur2.getTemps()).thenReturn(1.0);
+    
+    Coureur mockCoureur3 = mock(Coureur.class);
+    when(mockCoureur3.getTemps()).thenReturn(2.0);
+    
+    Coureur mockCoureur4 = mock(Coureur.class);
+    when(mockCoureur4.getTemps()).thenReturn(2.0);
+    
+    List coureurs = Arrays.asList(mockCoureur1, mockCoureur2, mockCoureur3, mockCoureur4);
+
+    equipe.addCoureurs(coureurs);
+    Coureur result = equipe.meilleurCoureur();
+
+    assertEquals(result.getTemps(), mockCoureur2.getTemps());
   }
   
 
@@ -167,20 +189,6 @@ public class EquipeTest {
   public void equals_should_return_False() {
     Equipe equipeTest = new Equipe("FalseName");
     assertFalse(equipe.equals(equipeTest));
-  }
-
-  @Test
-  public void getCoureurs_returns_the_list_of_Coureur() {
-
-    when(mockedList.get(0)).thenReturn(new Coureur("UNIT", "Test", 'F', 13, "equipe"));
-    when(mockedList.get(1)).thenReturn(new Coureur("UNIT", "Test", 'M', 24, "equipe"));
-    when(mockedList.get(2)).thenReturn(new Coureur("UNIT", "Test", 'F', 1, "equipe"));
-    when(mockedList.get(3)).thenReturn(new Coureur("UNIT", "Test", 'F', 2, "equipe"));
-
-    equipe.addCoureurs(mockedList);
-
-    List coureursObtenu = equipe.getCoureurs();
-    assertEquals(coureursObtenu, mockedList);
   }
 
   @Test
