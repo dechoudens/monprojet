@@ -3,8 +3,6 @@ package ch.hesge.projetmaven.metier;
 import ch.hesge.projetmaven.base.EquipeDao;
 import ch.hesge.projetmaven.domaine.Equipe;
 import java.util.ArrayList;
-import java.util.List;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.testng.Assert.*;
 import org.testng.annotations.BeforeMethod;

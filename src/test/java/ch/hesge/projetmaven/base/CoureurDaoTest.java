@@ -47,4 +47,17 @@ public class CoureurDaoTest {
 
     assertEquals(coureurs.size(), 0);
   }
+  
+  @Test
+  public void getListeCourerur_returns_the_right_list(){
+    Fichier fichier = new Fichier("DUPONT;Jean;M;32.1;Heineken\n\rATAN;Charles;M;27.4;Heineken");
+    
+    Coureur coureur1 = new Coureur("DUPONT", "Jean", 'M', 32.1,"Heineken");
+    Coureur coureur2 = new Coureur("ATAN", "Charles", 'M', 27.4,"Heineken");
+    
+    CoureurDao coureurDaoTest = new CoureurDao(fichier);
+    List coureurs = coureurDaoTest.getListeCoureur();
+    
+    assertTrue(coureurs.get(0).equals(coureur1) && coureurs.get(1).equals(coureur2));
+  }
 }
