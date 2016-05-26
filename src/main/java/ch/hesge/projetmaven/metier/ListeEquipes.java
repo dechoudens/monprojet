@@ -2,7 +2,6 @@ package ch.hesge.projetmaven.metier;
 
 import ch.hesge.projetmaven.base.EquipeDao;
 import ch.hesge.projetmaven.domaine.Equipe;
-import com.google.common.annotations.VisibleForTesting;
 import java.util.*;
 
 /**

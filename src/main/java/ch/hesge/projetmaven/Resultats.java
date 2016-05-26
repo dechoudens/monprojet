@@ -5,18 +5,14 @@ import ch.hesge.projetmaven.base.Fichier;
 import ch.hesge.projetmaven.metier.ListeEquipes;
 import ch.hesge.projetmaven.outils.FileToStr;
 import java.io.File;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
 
 /**
  *
  * @author meckanik
  */
-public class Resultats {
-  
-  public Resultats(String[] args) throws Exception{
+public final class Resultats {
+
+  public void traiterResultats(String[] args) throws Exception{
     System.out.println("Traitement des résultats: ");
 
     if (checkArgs(args)) {
@@ -51,7 +47,9 @@ public class Resultats {
   }
   
   public static void main(String[] args) throws Exception{
-    new Resultats(args);
+    Resultats resultats = new Resultats();
+    
+    resultats.traiterResultats(args);
   }
 
   

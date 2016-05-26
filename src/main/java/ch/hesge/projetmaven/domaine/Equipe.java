@@ -31,6 +31,7 @@ public class Equipe {
     this.coureurs = coureurs;
   }
  
+  @Override
   public String toString() {
     return "Equipe: " + this.composition() + " \"" + this.nom + "\", " + this.nbCoureur + " coureurs, " + this.meilleurCoureur();
   }
@@ -69,7 +70,9 @@ public class Equipe {
 
   @Override
   public boolean equals(Object obj) {
-
+    if(obj == null){
+      return false;
+    }
     if (!Objects.equals(this.nom, ((Equipe)obj).nom)) {
       return false;
     }

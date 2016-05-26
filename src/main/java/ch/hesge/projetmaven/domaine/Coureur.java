@@ -9,14 +9,18 @@ import java.util.Objects;
  *
  * @author: Antoine de Choudens
  *
-*/
+ */
 public class Coureur {
 
-  private String nom;       /* Nom du coureur */
-  private String prenom;    /* Prénom du coureur */
-  private boolean masculin; /* true si le sexe est masculin ("M"), false si le sexe est féminin ("F") */
-  private double temps;     /* Temps réalisé */
-  private String equipe;
+  private final String nom;
+  /* Nom du coureur */
+  private final String prenom;
+  /* Prénom du coureur */
+  private final boolean masculin;
+  /* true si le sexe est masculin ("M"), false si le sexe est féminin ("F") */
+  private final double temps;
+  /* Temps réalisé */
+  private final String equipe;
 
   public Coureur(String nom, String prenom, char sexe, double temps, String equipe) {
     this.nom = nom;
@@ -24,18 +28,18 @@ public class Coureur {
     this.masculin = isMasculin(sexe);
     this.temps = temps;
     this.equipe = equipe;
-  } 
-  
-  private boolean isMasculin(char sexe){
+  }
+
+  private boolean isMasculin(char sexe) {
     return sexe == 'M';
   }
 
-  public String toString () {
-    if(masculin){
-        return "meilleur = "+nom+" "+prenom+" (M) "+temps;
-    }
-    else{
-        return "meilleur = "+nom+" "+prenom+" (F) "+temps;
+  @Override
+  public String toString() {
+    if (masculin) {
+      return "meilleur = " + nom + " " + prenom + " (M) " + temps;
+    } else {
+      return "meilleur = " + nom + " " + prenom + " (F) " + temps;
     }
   }
 
@@ -43,22 +47,25 @@ public class Coureur {
     return this.equipe.equals(e.getNom());
   }
 
-  public boolean getSexe(){
-      return this.masculin;
+  public boolean getSexe() {
+    return this.masculin;
   }
-  
-  public double getTemps(){
-      return this.temps;
+
+  public double getTemps() {
+    return this.temps;
   }
 
   @Override
-  public boolean equals(Object obj) {
-
-    final Coureur other = (Coureur) obj;
-    if (this.masculin != other.masculin) {
+  public boolean equals(Object o){
+    double epsilon = 0.00000001;
+    final Coureur other = (Coureur) o;
+    if(other == null){
       return false;
     }
-    if (this.temps != other.temps) {
+    if (this.masculin != other.masculin){
+      return false;
+    }
+    if (Math.abs(this.temps - other.temps) >= epsilon) {
       return false;
     }
     if (!Objects.equals(this.nom, other.nom)) {
@@ -67,11 +74,7 @@ public class Coureur {
     if (!Objects.equals(this.prenom, other.prenom)) {
       return false;
     }
-    if (!Objects.equals(this.equipe, other.equipe)) {
-      return false;
-    }
-    return true;
+    return Objects.equals(this.equipe, other.equipe);
   }
-  
   
 } // Coureur

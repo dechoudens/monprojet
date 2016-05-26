@@ -1,5 +1,6 @@
 package ch.hesge.projetmaven.outils;
 import java.io.*;
+import java.nio.file.Path;
 /**
  * Lecture d'un fichier texte dans un String
  *
@@ -17,7 +18,7 @@ public class FileToStr {
   public String read (File fileName) {
     try {
       FileInputStream f = new FileInputStream(fileName);
-      StringBuffer b = new StringBuffer(f.available());
+      StringBuilder b = new StringBuilder(f.available());
       int c = f.read();
       while (c != EOF) {
         b.append((char)c);
